@@ -1,13 +1,37 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import logo from "../assets/logo (1).png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBell, faSearch } from "@fortawesome/free-solid-svg-icons";
 import profile__img from "../assets/profile_img (1).png";
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons/faCaretDown";
+import { auth } from "../firebase/firebase.js";
+import { signOut } from "firebase/auth";
 
-const Navbar = () => {
+const Navbar = ({ user }) => {
+  const navRef = useRef();
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY >= 300) {
+        navRef.current.classList.add("dark-nav");
+      } else {
+        navRef.current.classList.remove("dark-nav");
+      }
+    });
+  }, []);
+
+  function logOut() {
+    signOut(auth)
+      .then(() => {
+        console.log("User logged Out");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
   return (
-    <div className="navbar">
+    <div className="navbar" ref={navRef}>
       <div className="nav__left">
         <img src={logo} alt="" className="nav__left__img" />
         <ul>
@@ -26,7 +50,8 @@ const Navbar = () => {
           <img src={profile__img} alt="" className="profile" />
           <FontAwesomeIcon icon={faCaretDown} className="icons" />
           <div className="dropdown">
-            <p>Sign Out of Netflix</p>
+            <p>{`Hey ${user?.displayName}`}</p>
+            <p onClick={logOut}>Sign Out of Netflix</p>
           </div>
         </div>
       </div>

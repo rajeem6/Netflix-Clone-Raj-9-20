@@ -4,17 +4,17 @@ import Hero from "../components/Hero";
 import TitleCards from "../components/TitleCards";
 import Footer from "../components/Footer";
 
-const Home = () => {
+const Home = ({user}) => {
   return (
     <>
-      <Navbar />
+      <Navbar user={user} />
       <Hero />
       <TitleCards title="Popular on Netflix" />
       <div className="more-cards">
-        <TitleCards title="BlockBuster Movies" />
-        <TitleCards title="Only on Netflix" />
-        <TitleCards title="Upcoming" />
-        <TitleCards title="Top Picks for You" />
+        <TitleCards title="BlockBuster Movies" category={"top_rated"} />
+        <TitleCards title="Only on Netflix" category={"popular"} />
+        <TitleCards title="Upcoming" category={"upcoming"} />
+        <TitleCards title="Top Picks for You" category={"now_playing"} />
       </div>
       <Footer />
     </>

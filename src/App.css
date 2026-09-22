@@ -30,6 +30,10 @@ body {
   z-index: 1;
 }
 
+.dark-nav{
+  background-color: black;
+}
+
 .nav__left {
   display: flex;
   align-items: center;
@@ -105,7 +109,7 @@ body {
 .banner-img {
   width: 100%;
   mask-image: linear-gradient(to right, transparent, black 75%);
-  webkit-mask-image: linear-gradient(to right, transparent, black 75%);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 75%);
 }
 
 .hero-caption {
@@ -199,6 +203,11 @@ body {
   position: absolute;
   bottom: 10px;
   right: 10px;
+}
+
+.card-list .card p{
+  text-decoration: none;
+  color: white;;
 }
 
 /* footer section */
@@ -314,14 +323,44 @@ input {
   height: 18px;
 }
 
-.form-switch{
+.form-switch {
   margin-top: 40px;
   color: #737373;
 }
 
-.form-switch span{
+.form-switch span {
   margin-left: 6px;
   color: white;
   font-weight: 500;
   cursor: pointer;
+}
+
+/* PLAYER PAGE SECTION */
+
+.player {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.player img {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 50px;
+  cursor: pointer;
+}
+
+.player iframe {
+  border-radius: 10px;
+  border: 1px solid white;
+}
+
+.player-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 90%;
 }
