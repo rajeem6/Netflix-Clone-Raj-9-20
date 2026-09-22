@@ -36,7 +36,7 @@ const Register = () => {
           console.log("new user registered");
           const newUser = user.user;
           console.log(newUser);
-          navigate("/")
+          navigate("/");
           return newUser;
         })
         .then((newUser) => {
@@ -49,6 +49,10 @@ const Register = () => {
         });
     }
   }
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="register">

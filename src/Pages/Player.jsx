@@ -30,10 +30,14 @@ const Player = () => {
       .catch((err) => console.error(err));
   }, []);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="player">
       <Link to="/">
-      <img src={back_arrow_icon} alt="" />
+        <img src={back_arrow_icon} alt="" />
       </Link>
       <iframe
         width="90%"
